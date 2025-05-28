@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dog image creation</title>
+    <style>
+        html,body{
+            margin: 0%;;
+            padding:0%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-content: center;
+        }
+        .container{
+            height: 80%;
+            width: 80%;
+            border: 20px solid black;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: wheat;
+            margin:100px;
+
+        }
+        h1{
+            margin:30px;
+        }
+        .box{
+            height: 80%;
+            width: 80%;
+            border:10px solid black;
+            display: flex;
+            text-align: center;  
+            background-color: rgb(255, 209, 124);      
+        }
+        .btn{
+            height: 30px;;
+            width: 100px;
+            display: flex;;
+            flex-direction: column;
+            align-items: center;
+            text-align: center ;
+            border-radius: 20px;
+            border:5px solid rgb(132, 89, 9);
+            padding: 2px;
+            margin: 50px;
+            background-color:rgb(228, 217, 195);
+            
+
+        }
+        .btnFlash{
+             border: 5px solid white;
+             color:white;
+             background-color: black;
+             transition-duration: 200ms;
+        }
+        #image{
+            max-width: 100% ;
+            max-height: 100% ;
+            object-fit:contain;
+
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+                @media (max-width: 600px) {
+            .container {
+                width: 95%;
+                margin: 1rem auto;
+                border-width: 10px;
+            }
+            
+            .box {
+                width: 95%;
+            }
+            
+            .btn {
+                width: 100px;
+                height: 35px;
+            }
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MY DOG COLLECTIONS</h1>
+        <h2></h2>
+        <div class="box">
+            <img id="image" src="https://images.dog.ceo/breeds/puggle/IMG_124524.jpg" alt="">
+        </div>
+        <button class="btn">Enter</button>
+    </div>
+    
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+    let btn=document.querySelector('.btn');
+    let url2='https://dog.ceo/api/breeds/image/random';
+    let h2=document.querySelector('h2');
+    // focus(btn);
+
+    btn.addEventListener('click',async ()=>
+    {  
+        btn.classList.add('btnFlash')
+        let link= await getImage();
+        let image=document.querySelector('#image');
+        image.setAttribute('src',link);
+        setTimeout(()=>{
+            btn.classList.remove('btnFlash');
+
+        },20);
+
+    })  ;
+
+    document.addEventListener('keydown',async(e)=>{
+    if(e.key==="Enter"|| e.key===" "){
+        e.preventDefault();
+        btn.classList.add('btnFlash')
+        let link= await getImage();
+        let image=document.querySelector('#image');
+        image.setAttribute('src',link);
+        setTimeout(()=>{
+            btn.classList.remove('btnFlash');
+
+        },200);             
+
+            }
+          
+    })
+
+    async function getImage(){
+        try{
+           let response= await axios.get(url2);
+           console.log(response.data.message);
+           return response.data.message;         
+        }
+        catch(err){
+            console.log(err);
+            h2.innerHTML=err;
+            return "";
+        }
+
+    }
+
+</script>
+</html>

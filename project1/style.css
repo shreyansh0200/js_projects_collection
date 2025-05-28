@@ -1,0 +1,44 @@
+html {
+    margin: 0;
+  }
+  
+  span {
+    display: block;
+  }
+  .canvas {
+    margin: 100px auto 100px;
+    width: 80%;
+    text-align: center;
+  }
+  
+  .button {
+    width: 100px;
+    height: 100px;
+    border: solid black 2px;
+    display: inline-block;
+  }
+  
+  #grey {
+    background: rgb(196, 196, 196);
+  }
+  #pink {
+    background: pink;
+  }
+  
+  #white {
+    background: white;
+  }
+  #x {
+    background: rgb(125, 217, 230);
+  }
+  #wheat {
+    background: wheat;
+  }
+
+  a{
+      border: solid,2px,black;
+      background-color: rgb(156, 199, 249);                
+
+
+  }
+  

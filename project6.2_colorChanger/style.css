@@ -1,0 +1,47 @@
+body {
+    background-color: black;
+    margin: 0; /* Remove default body margin */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically (optional) */
+    min-height: 100vh; /* Ensure full viewport height */
+}
+
+.all {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 80%; /* Adjust width as needed */
+    max-width: 500px; /* Prevent too wide on large screens */
+    padding: 20px;
+    border-radius: 8px; /* Optional: rounded corners */
+}
+
+#code, #box {
+    height: 100px;
+    width: 100%;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically inside box */
+    margin: 10px 0; /* Only top/bottom margin */
+    padding: 10px;
+    box-sizing: border-box; /* Include padding in width/height */
+}
+
+button {
+    height: 40px;
+    width: 150px;
+    margin: 10px auto; /* Auto centers horizontally */
+    cursor: pointer; /* Show pointer on hover */
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}

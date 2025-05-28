@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random-color-generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="all">
+        <div id="code"></div>
+        <button>Generate Color</button>
+        <div id="box">this is your new color</div>
+    </div>
+    
+</body>
+<script >
+    const colorCode="123456789ABCDEF";
+
+let invalid=null
+
+
+
+
+function colorThorw(){
+let color= "#"    
+for (let i=0;i<6;i++){
+    const random=Math.floor(Math.random()*16);
+    color+=colorCode[random];
+    
+}
+return color;
+}
+
+let button=document.querySelector('button');
+let box=document.querySelector("#box");
+let div=document.querySelector("#code")
+
+let x=true;
+
+button.addEventListener('click' , function(){
+    if(invalid===null){
+       invalid=setInterval(function(){
+        const newColor=colorThorw();
+         box.style.backgroundColor=newColor;
+         div.textContent=newColor;
+    },1000)
+    button.textContent="stop"
+ }else{
+    clearInterval(invalid);
+    invalid=null;
+    button.textContent='start';
+ }
+
+})
+
+    
+</script>
+
+</html>

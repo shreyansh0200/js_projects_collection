@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paragraph to Quiz Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Interactive  Quiz Converter</h1>
+        
+        <!-- Paragraph Input Area -->
+        <textarea id="paragraphInput" placeholder="Enter your paragraph here..." rows="6"></textarea>
+        
+        <!-- Difficulty Level Selection -->
+        <div class="difficulty-level">
+            <p>Select Difficulty Level:</p>
+            <select id="difficultySelect">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
+
+        <!-- Generate Quiz Button -->
+        <button id="generateQuizButton" onclick="generateQuiz()">Generate Quiz</button>
+
+        <!-- Quiz Display Area -->
+        <div id="quizContainer"></div>
+        
+        <!-- Submit Quiz Button -->
+        <button id="submitQuizButton" onclick="submitQuiz()" style="display:none;">Submit Quiz</button>
+
+        <!-- Score and Explanation Display Area -->
+        <div id="scoreContainer"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
